@@ -1,14 +1,13 @@
-
 import React, { useEffect, useRef, useState } from "react";
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
-  ScrollView, 
-  Image, 
-  Animated, 
-  Share 
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  Animated,
+  Share,
+  Alert,
 } from "react-native";
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
@@ -19,10 +18,6 @@ export default function Home() {
   const [frase, setFrase] = useState("");
 
   const frases = [
-    "Nunca pare de aprender!",
-    "A tecnologia move o mundo.",
-    "Seu código vale ouro.",
-    "Você está indo muito bem.",
     "Cada bug resolvido é uma vitória.",
     "Confie no seu processo.",
   ];
@@ -43,7 +38,6 @@ export default function Home() {
     ).start();
   }, []);
 
-  
   const handleShare = async () => {
     try {
       await Share.share({
@@ -51,11 +45,10 @@ export default function Home() {
           "Confira meu portfólio completo desenvolvido em React Native com Expo!\n\nAcesse: https://meuportfolio.expo.dev",
       });
     } catch (error) {
-      alert("Ocorreu um erro ao tentar compartilhar.");
+      Alert.alert("Erro", "Ocorreu um erro ao tentar compartilhar.");
     }
   };
 
-  
   const gerarFrase = () => {
     const aleatoria = frases[Math.floor(Math.random() * frases.length)];
     setFrase(aleatoria);
@@ -65,13 +58,14 @@ export default function Home() {
 
   return (
     <LinearGradient
-      colors={["#f96098ff", "#c74b46"]}
+      colors={["#f96098FF", "#C74B46FF"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={styles.gradient}
     >
       <Animated.View style={{ flex: 1, opacity: fadeAnim }}>
         <ScrollView contentContainerStyle={styles.container}>
+          {/* Verifique se o arquivo existe: ../assets/images/foto_perfil.jpeg */}
           <Animated.Image
             source={require("../assets/images/foto_perfil.jpeg")}
             style={[styles.image, { transform: [{ translateY: imageAnim }] }]}
@@ -80,9 +74,9 @@ export default function Home() {
           <Text style={styles.title}>Bem-vindo(a) ao meu Portfólio!</Text>
 
           <Text style={styles.subtitle}>
-            Sou <Text style={styles.highlight}>Marília Albuquerque de Lima Ribeiro</Text>,{"\n"}
-            dona desse site e fico muito feliz com a sua visita!{"\n\n"}
-            Aqui você pode conhecer melhor minhas experiências, projetos e muito mais!{"\n"}
+            Sou <Text style={styles.highlight}>Guilherme Martins Queiroz de Oliveira</Text>,{"\n"}
+            dono desse site e fico muito feliz com a sua visita!{"\n\n"}
+            Aqui você pode conhecer melhor minhas experiências, projetos e muito mais!
           </Text>
 
           <View style={styles.buttonsContainer}>
@@ -110,7 +104,6 @@ export default function Home() {
               </AnimatedTouchable>
             </Link>
 
-            
             <TouchableOpacity style={styles.shareButton} onPress={handleShare}>
               <Text style={styles.shareText}>Compartilhar meu Portfólio</Text>
             </TouchableOpacity>
@@ -165,7 +158,7 @@ const styles = StyleSheet.create({
     color: "#f8f8f8",
     textAlign: "center",
     lineHeight: 24,
-    marginBottom: 40,
+    marginBottom: 24,
   },
   highlight: {
     color: "#fff",
@@ -174,7 +167,6 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     width: "100%",
     alignItems: "center",
-    gap: 15,
   },
   button: {
     backgroundColor: "#fff",
@@ -186,15 +178,17 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOffset: { width: 2, height: 4 },
     width: "85%",
+    marginBottom: 12,
+    elevation: 4,
   },
   buttonText: {
-    color: "#ed6381ff",
+    color: "#ed6381FF",
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
   },
   shareButton: {
-    marginTop: 20,
+    marginTop: 8,
     backgroundColor: "#fff",
     paddingVertical: 14,
     borderRadius: 12,
@@ -203,6 +197,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     shadowOffset: { width: 2, height: 4 },
+    elevation: 4,
+    marginBottom: 12,
   },
   shareText: {
     color: "#c74b46",
@@ -211,7 +207,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   extraButton: {
-    marginTop: 20,
     backgroundColor: "#fff",
     paddingVertical: 14,
     borderRadius: 12,
@@ -220,6 +215,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     shadowOffset: { width: 2, height: 4 },
+    elevation: 4,
+    marginBottom: 12,
   },
   extraText: {
     color: "#c74b46",

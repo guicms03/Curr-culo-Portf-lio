@@ -42,28 +42,28 @@ export default function Experiencias() {
 
       {[
         {
-          logo: require("../assets/images/visionone_logo.png"),
-          cargo: "Estagiária de Infraestrutura",
-          empresa: "VisionOne",
+          logo: require("../assets/images/GrupoPreserveLiserve_logo.png"),
+          cargo: "Estagiário de Infraestrutura",
+          empresa: "GrupoPreserveLiserve",
           periodo: "Novembro de 2025 – Atualmente",
           descricao:
             "Atuo no atendimento e suporte aos colaboradores, manutenção e configuração de equipamentos de rede e computadores. Também realizo instalação de softwares, formatação de máquinas e integração de dispositivos aos serviços corporativos, como domínio, OneDrive e SharePoint."
         },
         {
-          logo: require("../assets/images/visionone_logo.png"),
+          logo: require("../assets/images/GrupoPreserveLiserve_logo.png"),
           cargo: "Jovem Aprendiz de Infraestrutura",
-          empresa: "VisionOne",
+          empresa: "GrupoPreserveLiserve",
           periodo: "Setembro de 2025 – Outubro de 2025",
           descricao:
             "Atuava no atendimento e suporte aos colaboradores, instalação de softwares, formatação de máquinas e integração de dispositivos aos serviços corporativos, como domínio, OneDrive e SharePoint, além de apoio em tarefas administrativas do setor."
         },
         {
-          logo: require("../assets/images/sda_logo.png"),
-          cargo: "Estagiária de Suporte Técnico",
-          empresa: "Secretaria de Desenvolvimento Agrário de Pernambuco",
+          logo: require("../assets/images/Temape_logo.png"),
+          cargo: "Estagiário de Suporte Técnico",
+          empresa: "Temape",
           periodo: "Outubro de 2024 – Setembro de 2025",
           descricao:
-            "Responsável por auxiliar na manutenção dos sistemas e infraestrutura tecnológica, prestando suporte técnico aos usuários e contribuindo para o bom funcionamento dos equipamentos e redes da Secretaria."
+            "Responsável por auxiliar na manutenção dos sistemas e infraestrutura tecnológica, prestando suporte técnico aos usuários e contribuindo para o bom funcionamento dos equipamentos."
         }
       ].map((item, index) => (
         <Animated.View
